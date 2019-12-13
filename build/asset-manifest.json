@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/simple-synth/static/css/main.ac1b9a59.chunk.css",
+    "main.js": "/simple-synth/static/js/main.7288dbca.chunk.js",
+    "main.js.map": "/simple-synth/static/js/main.7288dbca.chunk.js.map",
+    "runtime-main.js": "/simple-synth/static/js/runtime-main.23d9c90b.js",
+    "runtime-main.js.map": "/simple-synth/static/js/runtime-main.23d9c90b.js.map",
+    "static/js/2.1999273c.chunk.js": "/simple-synth/static/js/2.1999273c.chunk.js",
+    "static/js/2.1999273c.chunk.js.map": "/simple-synth/static/js/2.1999273c.chunk.js.map",
+    "index.html": "/simple-synth/index.html",
+    "precache-manifest.a7ac7f0b7800ff86417bc9dbf133243f.js": "/simple-synth/precache-manifest.a7ac7f0b7800ff86417bc9dbf133243f.js",
+    "service-worker.js": "/simple-synth/service-worker.js",
+    "static/css/main.ac1b9a59.chunk.css.map": "/simple-synth/static/css/main.ac1b9a59.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23d9c90b.js",
+    "static/js/2.1999273c.chunk.js",
+    "static/css/main.ac1b9a59.chunk.css",
+    "static/js/main.7288dbca.chunk.js"
+  ]
+}
