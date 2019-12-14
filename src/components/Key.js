@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import '../App.css'
 
-export default class Key extends Component {
-    render() {
+export default function Key(props) {
         return (
-            <div className='key' id={`key-${this.props.note}`}>
-                {this.props.note}
+            <div className='key' id={`key-${props.note}`}>
+                {props.note}
             </div>
         )
-    }
 }
