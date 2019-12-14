@@ -76,7 +76,7 @@ export default class App extends Component {
   logKey = (e) => {
     if (Object.keys(this.state.notesMap).includes(e.key)){
       let key = document.querySelector(`#key-${e.key}`)
-      key.style = "background-color: grey;"
+      key.style['background-color'] = "grey";
     }
     
   }
@@ -86,7 +86,7 @@ export default class App extends Component {
     if (Object.keys(this.state.notesMap).includes(e.key)){
       this.state.patch.triggerRelease(this.state.notesMap[e.key]);
       let key = document.querySelector(`#key-${e.key}`)
-      key.style = "background-color: null;"
+      key.style['background-color'] = "";
     }
   }
 
