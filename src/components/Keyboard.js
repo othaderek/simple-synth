@@ -4,7 +4,7 @@ import Key from './Key'
 export default class Keyboard extends Component {
     render() {
         const renderKeys = Object.keys(this.props.notesMap).map( key => {
-            return <Key note={key} key={key} handleKeydown={this.props.handleKeydown} />
+            return <Key note={key} key={key} />
         })
         return (
             <div className='keyboard'>

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Directions from './components/Directions'
 import Keyboard from './components/Keyboard'
 import sine from './patches/sine'
-import triangle from './patches/triangle'
-import square from './patches/square'
 import './App.css'
+import notes from './utility/notes'
+import patchMap from './utility/patchMap'
 
 export default class App extends Component {
 
@@ -12,21 +12,7 @@ export default class App extends Component {
     patch: sine,
     octave: 4,
     lastNote: 5,
-    notesMap: {
-      'a': null,
-      'w': null,
-      's': null,
-      'e': null,
-      'd': null,
-      'f': null,
-      't': null,
-      'g': null,
-      'y': null,
-      'h': null,
-      'u': null,
-      'j': null,
-      'k': null
-    }
+    notesMap: notes
   }
   
   componentDidMount(){
@@ -96,12 +82,8 @@ export default class App extends Component {
 
   changePatch = (key) => {
     this.releaseNotes(key)
-    let patchMap = {
-      '1': sine,
-      '2': triangle,
-      '3': square 
-    }
-    this.setState({ patch: patchMap[key] })
+    let patchesMap = patchMap
+    this.setState({ patch: patchesMap[key] })
   }
   
   changeOctave = (key) => {
@@ -131,7 +113,7 @@ export default class App extends Component {
     return (
       <div>
         <Directions />
-        <Keyboard handleKeydown={this.handleKeyDown} notesMap={this.state.notesMap} />
+        <Keyboard notesMap={this.state.notesMap} />
       </div>
     )
   }
