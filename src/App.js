@@ -58,7 +58,7 @@ export default class App extends Component {
   synthKey = (e) => {
     return (e.repeat) ? null : this.state.patch.triggerAttack(this.state.notesMap[e.key]) && this.keyGrey(e); 
   }
-
+  
   keyGrey = (e) => {
     if (Object.keys(this.state.notesMap).includes(e.key)){
       let key = document.querySelector(`#key-${e.key}`)
