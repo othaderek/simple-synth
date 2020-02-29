@@ -62,7 +62,7 @@ export default class App extends Component {
   keyGrey = (e) => {
     if (Object.keys(this.state.notesMap).includes(e.key)){
       let key = document.querySelector(`#key-${e.key}`)
-      key.style['background-color'] = "grey";
+      key.style['background-color'] = "khaki";
     }
     
   }

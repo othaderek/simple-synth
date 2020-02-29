@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -19,15 +19,18 @@
 
 .App-link {
   color: #09d3ac;
-}
+} */
 
+body {
+  background-color: lightcyan;
+}
 .keyboard {
   text-align: center;
-  background-color: black;
+  background-color: khaki;
 }
 
 .key {
-  background-color: white;
+  background-color: lightcyan;
   border: solid #727272 1px;
   width: 50px;
   height: 100px;
