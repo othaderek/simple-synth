@@ -5,6 +5,7 @@ import sine from './patches/sine'
 import './App.css'
 import notes from './utility/notes'
 import patchMap from './utility/patchMap'
+import Slider from './components/Slider'
 
 export default class App extends Component {
 
@@ -12,7 +13,8 @@ export default class App extends Component {
     patch: sine,
     octave: 4,
     lastNote: 5,
-    notesMap: notes
+    notesMap: notes,
+    value: 0
   }
   
   componentDidMount(){
@@ -108,12 +110,22 @@ export default class App extends Component {
     this.resetOctave()
   }
 
+  changeSetting = (e) => {
+    console.log(e.target.name, this.state.value);
+    this.setState({
+      patch: this.state.patch.set(e.target.name, this.state.value),
+      value: e.target.value
+    })
+  }
+
+
   render() {
     
     return (
       <div>
         <Directions />
         <Keyboard notesMap={this.state.notesMap} />
+        <Slider value={this.state.value} changeSetting={this.changeSetting} />
       </div>
     )
   }
