@@ -15,6 +15,7 @@ export default class EffectsDropdown extends Component {
                 <option value="bitcrusher">Bitcrusher</option>
                 <option value="chorus">Chorus</option>
                 <option value="reverb">Reverb</option>
+                <option value="pingpong">Ping Pong Delay</option>
             </select>  
         )
     }

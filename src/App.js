@@ -6,6 +6,8 @@ import sine from './patches/sine'
 import bitcrusher from './effects/bitcrusher'
 import chorus from './effects/chorus'
 import reverb from './effects/reverb'
+import pingpong from './effects/pingpong'
+import channel from './effects/channel'
 import './App.css'
 import notes from './utility/notes'
 import patchMap from './utility/patchMap'
@@ -144,20 +146,41 @@ export default class App extends Component {
         patch: this.state.patch.connect(effectObject)
       })
     }
+    
 
     setTimeout( () => {
       console.log(this.state);
       
     },
     500)
-    
-    console.log(this.state);
-    
   }
   
 
   changeEffect = (e) => {
     this.effectChoice(e.target.value)
+  }
+
+  addChorus = (effectObject) => {
+
+    if (this.state.currentEffect != null){
+      this.setState({
+        patch: this.state.patch.disconnect(this.state.currentEffect)
+      })
+      this.setState({
+        currentEffect: effectObject
+      })
+      this.setState({
+        patch: this.state.patch.connect(effectObject, channel)
+      })
+    } else{
+      this.setState({
+        currentEffect: effectObject
+      })
+      this.setState({
+        patch: this.state.patch.connect(effectObject, channel)
+      })
+    }
+    
   }
   
 
@@ -170,10 +193,13 @@ export default class App extends Component {
         this.addEffect(bitcrusher);
         break;
       case "chorus":
-        this.addEffect(chorus)
+        this.addChorus(chorus)
         break;
       case "reverb":
         this.addEffect(reverb)
+        break;
+      case "pingpong":
+        this.addEffect(pingpong)
         break;
       default:
         break;
