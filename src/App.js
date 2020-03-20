@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import Tone from 'tone'
 import Directions from './components/Directions'
 import Keyboard from './components/Keyboard'
 import sine from './patches/sine'
+import bitcrusher from './effects/bitcrusher'
+import chorus from './effects/chorus'
+import reverb from './effects/reverb'
 import './App.css'
 import notes from './utility/notes'
 import patchMap from './utility/patchMap'
 import Slider from './components/Slider'
+import EffectsDropdown from './components/EffectsDropdown'
 
 export default class App extends Component {
 
@@ -14,7 +19,8 @@ export default class App extends Component {
     octave: 4,
     lastNote: 5,
     notesMap: notes,
-    value: 0
+    value: 0,
+    currentEffect: null
   }
   
   componentDidMount(){
@@ -111,13 +117,68 @@ export default class App extends Component {
   }
 
   changeSetting = (e) => {
-    console.log(e.target.name, this.state.value);
     this.setState({
       patch: this.state.patch.set(e.target.name, this.state.value),
       value: e.target.value
     })
   }
 
+  addEffect = (effectObject) => {
+    console.log(effectObject);
+    
+    if (this.state.currentEffect != null){
+      this.setState({
+        patch: this.state.patch.disconnect(this.state.currentEffect)
+      })
+      this.setState({
+        currentEffect: effectObject
+      })
+      this.setState({
+        patch: this.state.patch.connect(effectObject)
+      })
+    } else{
+      this.setState({
+        currentEffect: effectObject
+      })
+      this.setState({
+        patch: this.state.patch.connect(effectObject)
+      })
+    }
+
+    setTimeout( () => {
+      console.log(this.state);
+      
+    },
+    500)
+    
+    console.log(this.state);
+    
+  }
+  
+
+  changeEffect = (e) => {
+    this.effectChoice(e.target.value)
+  }
+  
+
+
+  effectChoice(choice) {
+    console.log(choice);
+    
+    switch(choice){
+      case "bitcrusher":
+        this.addEffect(bitcrusher);
+        break;
+      case "chorus":
+        this.addEffect(chorus)
+        break;
+      case "reverb":
+        this.addEffect(reverb)
+        break;
+      default:
+        break;
+    }
+  }
 
   render() {
     
@@ -125,6 +186,7 @@ export default class App extends Component {
       <div>
         <Directions />
         <Keyboard notesMap={this.state.notesMap} />
+        <EffectsDropdown changeEffect={this.changeEffect} />
         <Slider value={this.state.value} changeSetting={this.changeSetting} />
       </div>
     )
