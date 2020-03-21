@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Tone from 'tone'
 import Directions from './components/Directions'
 import Keyboard from './components/Keyboard'
 import sine from './patches/sine'
