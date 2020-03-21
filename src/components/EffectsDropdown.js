@@ -10,7 +10,7 @@ export default class EffectsDropdown extends Component {
     
     render() {
         return (
-            <div>
+            <div className="effects-container">
             <label>Effects</label>
             <select className="effects"onChange={this.handleChange} id="effect-select" name="effect">
                 <option value={null}>None</option>

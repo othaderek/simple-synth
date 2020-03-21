@@ -23,5 +23,8 @@ body {
 }
 
 .effects {
-  margin-top: 20px;
+}
+
+label, select {
+  display: block;
 }

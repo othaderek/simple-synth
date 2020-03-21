@@ -92,7 +92,13 @@ export default class App extends Component {
   changePatch = (key) => {
     this.releaseNotes(key)
     let patchesMap = patchMap
-    this.setState({ patch: patchesMap[key] })
+    if (this.state.currentEffect != null){
+      this.setState({
+        patch: this.state.patch.disconnect(this.state.currentEffect)
+      })
+    }
+
+    this.setState({ patch: patchesMap[key].connect(this.state.currentEffect) })
   }
   
   changeOctave = (key) => {
