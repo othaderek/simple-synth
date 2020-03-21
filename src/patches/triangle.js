@@ -10,7 +10,7 @@ let triangle = new Tone.PolySynth(4, Tone.Synth, {
       sustain : 0.3 ,
       release : 0.05
       },
-      volume: -10
+      volume: -15
   }).toMaster();
 
   export default triangle

@@ -10,7 +10,7 @@ let square = new Tone.PolySynth(4, Tone.Synth, {
       sustain : 0.3 ,
       release : 0.05
       },
-    volume: -20
+    volume: -25
   }).toMaster();
 
   export default square
