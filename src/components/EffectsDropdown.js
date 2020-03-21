@@ -14,10 +14,10 @@ export default class EffectsDropdown extends Component {
             <label>Effects</label>
             <select className="effects"onChange={this.handleChange} id="effect-select" name="effect">
                 <option value={null}>None</option>
-                <option value="bitcrusher">Bitcrusher</option>
-                <option value="chorus">Chorus</option>
                 <option value="reverb">Reverb</option>
                 <option value="pingpong">Ping Pong Delay</option>
+                <option value="chorus">Chorus</option>
+                <option value="bitcrusher">Bitcrusher</option>
             </select>  
             </div>
 
