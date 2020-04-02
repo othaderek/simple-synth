@@ -162,6 +162,8 @@ export default class App extends Component {
   
 
   changeEffect = (e) => {
+    console.log(e.target.innerText);
+    
     this.effectChoice(e.target.value)
   }
 
