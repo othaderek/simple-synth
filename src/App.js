@@ -161,10 +161,10 @@ export default class App extends Component {
   }
   
 
-  changeEffect = (e) => {
-    console.log(e.target.innerText);
+  changeEffect = (e, data) => {
+    console.log(data.value);
     
-    this.effectChoice(e.target.value)
+    this.effectChoice(data.value)
   }
 
   addChorus = (effectObject) => {
@@ -190,11 +190,22 @@ export default class App extends Component {
     
   }
   
+  removeEffect(){
+    this.setState({
+      patch: this.state.patch.disconnect(this.state.currentEffect)
+    })
+    this.setState({
+      currentEffect: null
+    })
+    this.setState({
+      currentEffect: null
+    })
+  }
 
 
   effectChoice(choice) {
-    console.log(choice);
-    
+    if (choice === null && !this.state.currentEffect) return null
+    if (choice === null) this.removeEffect();
     switch(choice){
       case "bitcrusher":
         this.addEffect(bitcrusher);
@@ -214,7 +225,6 @@ export default class App extends Component {
   }
 
   render() {
-    
     return (
       <div>
         <Directions />
