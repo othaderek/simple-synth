@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Slider = props => {
     const handleChange = (e) => {
         props.changeSetting(e)
@@ -13,6 +11,5 @@ const Slider = props => {
         </div>
     )
 }
-
 
 export default Slider
